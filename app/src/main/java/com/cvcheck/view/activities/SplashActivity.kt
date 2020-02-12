@@ -3,7 +3,6 @@ package com.cvcheck.view.activities
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.CountDownTimer
 import android.os.Handler
 import com.cvcheck.R
 
@@ -24,7 +23,7 @@ class SplashActivity : BaseActivity() {
             // This method will be executed once the timer is over
             // Start your app main activity
 
-            startActivity(Intent(this,HomeActivity::class.java))
+            startActivity(Intent(this, HomeActivity::class.java))
 
             // close this activity
             finish()
