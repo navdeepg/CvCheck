@@ -3,6 +3,7 @@ package com.cvcheck.db
 import android.app.Application
 import androidx.lifecycle.LiveData
 import android.os.AsyncTask
+import android.util.Log
 import com.cvcheck.ApplicationData
 import com.cvcheck.db.dao.AboutMeDao
 import com.cvcheck.db.entity.AboutMe

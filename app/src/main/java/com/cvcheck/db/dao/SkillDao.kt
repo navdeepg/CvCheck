@@ -6,17 +6,18 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.cvcheck.db.entity.AboutMe
+import com.cvcheck.db.entity.Skill
 
 @Dao
-interface AboutMeDao {
+interface SkillDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAbout(aboutMe: AboutMe)
+    fun insertSkill(skill: Skill)
 
-    @Query("DELETE FROM about_table")
-    fun deleteAboutMe()
+    @Query("DELETE FROM skill_table")
+    fun deleteSkills()
 
-    @Query("SELECT * FROM about_table")
-    fun getAboutMe(): LiveData<AboutMe>
+    @Query("SELECT * FROM skill_table")
+    fun getSkills(): LiveData<Skill>
 
 }

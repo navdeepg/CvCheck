@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="skill"
+            type="com.cvcheck.db.entity.SkillType" />
+
+        <import type="android.view.View" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:background="@color/sectionBackground">
+
+    <TextView
+        android:id="@+id/tvJobTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/text_important"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="@{skill.name}"
+         />
+
+    <TextView
+        android:id="@+id/tvJobDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:layout_marginBottom="14dp"
+        android:textColor="@color/text_subtitle"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/tvJobTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvJobTitle"
+        android:text="@{skill.description}"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

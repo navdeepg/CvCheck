@@ -38,8 +38,7 @@ class AboutViewModel(application: Application) : AndroidViewModel(application) {
 
         call.enqueue(object : Callback<AboutMe?> {
             override fun onResponse(call: Call<AboutMe?>, response: Response<AboutMe?>) {
-                val katerPlaces = response.body() as AboutMe
-                repository.insertAbout(katerPlaces)
+                repository.insertAbout(response.body() as AboutMe)
             }
 
             override fun onFailure(call: Call<AboutMe?>, t: Throwable) {

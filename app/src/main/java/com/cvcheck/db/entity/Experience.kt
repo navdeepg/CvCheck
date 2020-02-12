@@ -6,8 +6,8 @@ import androidx.room.PrimaryKey
 import java.util.*
 
 
-@Entity(tableName = "about_table")
-data class AboutMe(
+@Entity(tableName = "experience_table")
+data class Experience(
         var name: String? = "Test",
         var image: String? = "New",
         var occupation: String? = "",
@@ -15,7 +15,7 @@ data class AboutMe(
 ): BaseObservable()
 {
 
-        @PrimaryKey(autoGenerate = false)
-        var id: Int = 0
+        @PrimaryKey(autoGenerate = true)
+        var expId: Int = 0
 
 }

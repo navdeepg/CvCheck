@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:custom="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.cvcheck.viewmodel.AboutViewModel" />
+        <import type="android.view.View" />
+    </data>
+
+<com.google.android.material.card.MaterialCardView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="20dp"
@@ -31,7 +41,7 @@
             android:layout_marginTop="20dp"
             android:textStyle="bold"
             android:textSize="24sp"
-            tools:text="John Doe" />
+            android:text="@{vm.aboutMeLiveData.name}" />
 
         <TextView
             android:id="@+id/tvOccupation"
@@ -40,8 +50,9 @@
             android:textColor="@color/text_subtitle"
             android:layout_marginTop="5dp"
             android:textSize="16sp"
-            tools:text="Mobile App Developer" />
+            android:text="@{vm.aboutMeLiveData.occupation}" />
 
     </LinearLayout>
 
 </com.google.android.material.card.MaterialCardView>
+</layout>

@@ -5,6 +5,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.cvcheck.R
 import com.cvcheck.view.fragments.AboutFragment
+import com.cvcheck.view.fragments.ExperienceFragment
+import com.cvcheck.view.fragments.SkillFragment
 import com.cvcheck.viewmodel.HomeViewModel
 import com.cvcheck.viewmodel.HomeViewState
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -37,9 +39,9 @@ class HomeActivity : BaseActivity(){
 
         title = state.title
         val fragment = when(state.page) {
-            HomeViewModel.Page.AboutMe -> AboutFragment()
-            HomeViewModel.Page.Experience -> AboutFragment()
-            HomeViewModel.Page.Skills -> AboutFragment()
+            HomeViewModel.Page.AboutMe -> AboutFragment.newInstance()
+            HomeViewModel.Page.Experience -> ExperienceFragment.newInstance()
+            HomeViewModel.Page.Skills -> SkillFragment.newInstance()
         }
         supportFragmentManager.beginTransaction().replace(R.id.container_layout, fragment).commit()
     }
