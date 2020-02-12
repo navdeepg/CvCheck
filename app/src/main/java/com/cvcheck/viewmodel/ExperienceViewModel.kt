@@ -7,16 +7,18 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.cvcheck.data.CVApi
+import com.cvcheck.db.ExperienceRepository
 import com.cvcheck.db.entity.Skill
 import com.cvcheck.db.SkillRepository
+import com.cvcheck.db.entity.Experience
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class ExperienceViewModel(application: Application) : AndroidViewModel(application) {
 
-    private  var repository: SkillRepository = SkillRepository(application)
-    var aboutMeLiveData: LiveData<Skill> = repository.getAll()
+    private  var repository: ExperienceRepository = ExperienceRepository(application)
+    var experienceLiveData: LiveData<Experience> = repository.getAll()
 
     class Factory(private val application: Application) : ViewModelProvider.NewInstanceFactory() {
 
@@ -34,16 +36,15 @@ class ExperienceViewModel(application: Application) : AndroidViewModel(applicati
      * Gets experience json using retrofit and store in room database
      */
     private fun fetchExperienceInfo() {
-        val call = CVApi.singleton().skill()
+        val call = CVApi.singleton().experience()
 
-        call.enqueue(object : Callback<Skill?> {
-            override fun onResponse(call: Call<Skill?>, response: Response<Skill?>) {
-                val skillVal = response.body() as Skill
-                Log.e("Success", "##"+skillVal.skills?.size)
-                repository.insertSkill(skillVal)
+        call.enqueue(object : Callback<Experience?> {
+            override fun onResponse(call: Call<Experience?>, response: Response<Experience?>) {
+                val experienceVal = response.body() as Experience
+                repository.insert(experienceVal)
             }
 
-            override fun onFailure(call: Call<Skill?>, t: Throwable) {
+            override fun onFailure(call: Call<Experience?>, t: Throwable) {
                 Log.e("Error", "##")
                 // Log error to paper-trail
             }

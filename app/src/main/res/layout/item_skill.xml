@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     xmlns:bind="http://schemas.android.com/tools">
@@ -15,35 +16,50 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp"
+    android:layout_marginTop="@dimen/view_margin_10"
     android:background="@color/sectionBackground">
 
-    <TextView
-        android:id="@+id/tvJobTitle"
-        android:layout_width="wrap_content"
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:textColor="@color/text_important"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:text="@{skill.name}"
-         />
+        android:layout_margin="@dimen/view_radius_5"
+        android:background="@color/white"
+        card_view:cardCornerRadius="@dimen/view_radius_5"
+        card_view:cardElevation="@dimen/view_elevation_5"
+        card_view:layout_constraintTop_toTopOf="parent"
+        card_view:layout_constraintStart_toStartOf="parent">
 
-    <TextView
-        android:id="@+id/tvJobDescription"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        android:layout_marginBottom="14dp"
-        android:textColor="@color/text_subtitle"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@+id/tvJobTitle"
-        app:layout_constraintTop_toBottomOf="@+id/tvJobTitle"
-        android:text="@{skill.description}"
-        />
+        android:paddingTop="@dimen/view_margin_10"
+        android:paddingBottom="@dimen/view_margin_10"
+        android:paddingLeft="@dimen/view_margin_10"
+        android:paddingRight="@dimen/view_margin_10"
+        android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/tvJobTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_important"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="@{skill.name}"
+            />
+
+        <TextView
+            android:id="@+id/tvJobDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/view_margin_10"
+            android:textColor="@color/text_subtitle"
+            android:textSize="14sp"
+            android:text="@{skill.description}"
+            />
+
+    </LinearLayout>
+    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

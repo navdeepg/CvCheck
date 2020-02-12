@@ -7,8 +7,8 @@
 
     <data>
         <variable
-            name="vm"
-            type="com.cvcheck.viewmodel.AboutViewModel" />
+            name="experience"
+            type="com.cvcheck.db.entity.ExperienceType" />
         <import type="android.view.View" />
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
@@ -49,6 +49,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/milestoneView"
         app:layout_constraintStart_toEndOf="@+id/milestoneView"
         app:layout_constraintTop_toTopOf="@+id/milestoneView"
+        android:text="@{experience.duration}"
          />
 
     <TextView
@@ -61,6 +62,7 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/tvDuration"
         app:layout_constraintTop_toBottomOf="@+id/tvDuration"
+        android:text="@{experience.title}"
          />
 
     <TextView
@@ -75,6 +77,7 @@
         app:layout_constraintEnd_toEndOf="@+id/ivCompanyImage"
         app:layout_constraintStart_toStartOf="@+id/tvJobTitle"
         app:layout_constraintTop_toBottomOf="@+id/tvJobTitle"
+        android:text="@{experience.description}"
         />
 
     <TextView
@@ -88,6 +91,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/ivCompanyImage"
         app:layout_constraintEnd_toStartOf="@+id/ivCompanyImage"
         app:layout_constraintTop_toTopOf="@+id/ivCompanyImage"
+        android:text="@{experience.companyName}"
          />
 
     <ImageView

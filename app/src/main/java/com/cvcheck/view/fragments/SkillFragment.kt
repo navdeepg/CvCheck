@@ -42,8 +42,14 @@ class SkillFragment : Fragment() {
     //Observe any changes in live data
     private fun observerVm(){
         mViewModel.skillLiveData.observe(this, Observer {
-            mAdapter = SkillsAdapter(it.skills)
-            mDataBind.rvSkill.adapter = mAdapter
+            it?.let {
+                if(mAdapter == null)
+                {
+                    mAdapter = SkillsAdapter(it.skills)
+                    mDataBind.rvSkill.adapter = mAdapter
+                }
+            }
+
         })
     }
 

@@ -1,6 +1,7 @@
 package com.cvcheck.data
 
 import com.cvcheck.db.entity.AboutMe
+import com.cvcheck.db.entity.Experience
 import com.cvcheck.db.entity.Skill
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -19,6 +20,9 @@ interface CVApi {
 
     @GET("a375e01aac742a569b78554923a6c587/raw/2900e8e9fc052d29ce0a2635d816f0450b490cfc/cv.json")
     fun skill(): Call<Skill>
+
+    @GET("733a420eb604f6ab0479175a03c87d72/raw/8699144ffef10f6bc407701de00fdb979eb0cb09/experience.json")
+    fun experience(): Call<Experience>
 
     companion object {
         private const val ENDPOINT = "https://gist.githubusercontent.com/navdeepg/"

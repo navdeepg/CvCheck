@@ -2,5 +2,10 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="splash_text">36sp</dimen>
     <dimen name="toolbar_text_size">18sp</dimen>
+    <dimen name="view_radius_5">5dp</dimen>
+    <dimen name="view_elevation_5">5dp</dimen>
+    <dimen name="view_margin_5">5dp</dimen>
+    <dimen name="view_margin_10">10dp</dimen>
+
 
 </resources>

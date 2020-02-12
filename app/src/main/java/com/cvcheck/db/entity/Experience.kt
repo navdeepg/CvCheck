@@ -8,10 +8,7 @@ import java.util.*
 
 @Entity(tableName = "experience_table")
 data class Experience(
-        var name: String? = "Test",
-        var image: String? = "New",
-        var occupation: String? = "",
-        var aboutMe: String? = ""
+        var experiences: List<ExperienceType>? = null
 ): BaseObservable()
 {
 

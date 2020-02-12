@@ -6,20 +6,20 @@ import androidx.room.RoomDatabase
 import android.content.Context
 import androidx.room.TypeConverters
 import com.cvcheck.db.dao.AboutMeDao
+import com.cvcheck.db.dao.ExperienceDao
 import com.cvcheck.db.dao.SkillDao
-import com.cvcheck.db.entity.AboutMe
-import com.cvcheck.db.entity.Skill
-import com.cvcheck.db.entity.SkillType
+import com.cvcheck.db.entity.*
 
 @Database(
-        entities = [(AboutMe::class), (Skill::class), (SkillType::class)],
-        version = 15
+        entities = [(AboutMe::class), (Skill::class), (SkillType::class), (Experience::class), (ExperienceType::class)],
+        version = 20
 
 )
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase(){
     abstract fun aboutMeDao(): AboutMeDao
     abstract fun skillDao(): SkillDao
+    abstract fun experienceDao(): ExperienceDao
 
 
     companion object {
