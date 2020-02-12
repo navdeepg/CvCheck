@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">CvCheck</string>
+    <string name="aboutMe">About Me</string>
+    <string name="experience">Experience</string>
+    <string name="skills">Skills</string>
+    <string name="tryAgain">Try Again</string>
+    <string name="noItemFound">No Item Found!</string>
+    <string name="splashTitle">CVCheck</string>
 </resources>
