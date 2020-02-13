@@ -6,6 +6,8 @@
 This android application is created to showcase resume.
 
 
+![Gif of functionality](https://github.com/navdeepg/CvCheck/issues/1)
+
  ## Requirements
 
  - Android 19+

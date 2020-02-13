@@ -13,12 +13,6 @@
 
         <import type="android.view.View" />
     </data>
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/view_margin_10"
-    android:background="@color/sectionBackground">
-
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,37 +23,36 @@
         card_view:layout_constraintTop_toTopOf="parent"
         card_view:layout_constraintStart_toStartOf="parent">
 
-    <LinearLayout
-        android:background="@color/white"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="@dimen/view_margin_10"
-        android:paddingBottom="@dimen/view_margin_10"
-        android:paddingLeft="@dimen/view_margin_10"
-        android:paddingRight="@dimen/view_margin_10"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/tvJobTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/text_important"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:text="@{skill.name}"
-            />
-
-        <TextView
-            android:id="@+id/tvJobDescription"
+        <LinearLayout
+            android:background="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/view_margin_10"
-            android:textColor="@color/text_subtitle"
-            android:textSize="14sp"
-            android:text="@{skill.description}"
-            />
+            android:paddingTop="@dimen/view_margin_10"
+            android:paddingBottom="@dimen/view_margin_10"
+            android:paddingLeft="@dimen/view_margin_10"
+            android:paddingRight="@dimen/view_margin_10"
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/tvJobTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_important"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:text="@{skill.name}"
+                />
+
+            <TextView
+                android:id="@+id/tvJobDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/view_margin_10"
+                android:textColor="@color/text_subtitle"
+                android:textSize="14sp"
+                android:text="@{skill.description}"
+                />
+
+        </LinearLayout>
     </androidx.cardview.widget.CardView>
-</androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

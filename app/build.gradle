@@ -6,8 +6,8 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
-static def getInstrumentation(Project project) {
-    project.hasProperty('cucumber') ? "com.calculator.runner.CucumberTestRunner" : "androidx.test.runner.AndroidJUnitRunner"
+def getInstrumentation() {
+    project.hasProperty('cucumber') ? 'com.sniper.bdd.cucumber.runner.CucumberTestRunner' : 'android.support.test.runner.AndroidJUnitRunner'
 }
 
 def getTestTags() {
@@ -28,30 +28,20 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner getInstrumentation(project)
-
-        buildConfigField 'String', 'TEST_TAGS', '"' + getTestTags() + '"'
-        buildConfigField 'String', 'TEST_SCENARIO', '"' + getTestScenario() + '"'
+        multiDexEnabled true
+        testInstrumentationRunner getInstrumentation()
     }
     buildTypes {
-        def SERVER_PROD = "SERVER_PRODUCTION"
-        def SERVER_STAG = "SERVER_STAGING"
-        def SERVER_DEV = "SERVER_DEVELOPMENT"
-        release {
-            debuggable false
-            jniDebuggable false
-            renderscriptDebuggable false
-            zipAlignEnabled true
-            multiDexEnabled true
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-        debug {
-            debuggable true
-            versionNameSuffix "-debug"
-            multiDexEnabled true
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        buildTypes {
+            debug {
+                buildConfigField 'String', 'TEST_TAGS', '"' + getTestTags() + '"'
+                buildConfigField 'String', 'TEST_SCENARIO', '"' + getTestScenario() + '"'
+            }
+
+            release {
+                minifyEnabled false
+                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            }
         }
     }
     compileOptions {
@@ -81,6 +71,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     /* Kotlin */
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -112,23 +103,13 @@ dependencies {
     kapt "com.github.bumptech.glide:compiler:$glide_version"
 
     // AndroidJUnitRunner and JUnit Rules
-    androidTestImplementation 'androidx.test:runner:1.1.1'
-    androidTestImplementation 'androidx.test:rules:1.1.1'
+    testImplementation 'junit:junit:4.12'
+
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.1.0'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-intents:3.1.0'
+
     androidTestImplementation 'info.cukes:cucumber-android:1.2.5'
     androidTestImplementation 'info.cukes:cucumber-picocontainer:1.2.5'
-    androidTestImplementation 'info.cukes:cucumber-junit:1.2.5'
-    testImplementation "io.cucumber:cucumber-java:4.7.4"
-    testImplementation "io.cucumber:cucumber-junit:4.7.4"
-    androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-intents:3.1.0'
-
-    testImplementation 'ch.qos.logback:logback-classic:1.2.3'
-    testImplementation 'org.powermock:powermock-core:2.0.0-beta.5'
-    testImplementation 'org.powermock:powermock-module-junit4:2.0.0-beta.5'
-    testImplementation 'org.powermock:powermock-api-mockito2:2.0.0-beta.5'
-    testImplementation 'android.arch.core:core-testing:1.1.1'
-    testImplementation 'org.mockito:mockito-inline:2.13.0'
-    testImplementation 'junit:junit:4.12'
 
 }
