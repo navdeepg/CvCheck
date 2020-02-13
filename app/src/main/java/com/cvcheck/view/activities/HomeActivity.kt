@@ -10,6 +10,7 @@ import com.cvcheck.view.fragments.SkillFragment
 import com.cvcheck.viewmodel.HomeViewModel
 import com.cvcheck.viewmodel.HomeViewState
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.snackbar.Snackbar
 
 /**
  * Home activity that contains link to different menu options. It is also parent activity for all the fragments.
